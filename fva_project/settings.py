@@ -17,6 +17,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['vgg-fga.herokuapp.com']
 
+MY_SERVER = ALLOWED_HOSTS[0]
+
 AUTH_USER_MODEL = 'account.User'
 
 # Application definition

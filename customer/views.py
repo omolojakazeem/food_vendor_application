@@ -7,7 +7,7 @@ from django.urls import reverse
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 
-from fva_project.settings import EMAIL_HOST_USER
+from fva_project.settings import EMAIL_HOST_USER,MY_SERVER
 
 from rest_framework import status
 from rest_framework.permissions import AllowAny
@@ -49,7 +49,7 @@ class CustomerListViews(APIView):
 
                 user_id = urlsafe_base64_encode(force_bytes(new_user.pk))
                 token = user_tokenizer.make_token(new_user)
-                url = 'http://127.0.0.1:8000' + reverse('account:auth_user_reg', kwargs={'user_id': user_id, 'token': token})
+                url = MY_SERVER + reverse('account:auth_user_reg', kwargs={'user_id': user_id, 'token': token})
 
                 send_mail(
                     'VGG FOOD VENDOR APP: Email Confirmation',
